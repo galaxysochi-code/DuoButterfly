@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /DuoButterfly/
+Sitemap: https://galaxysochi-code.github.io/DuoButterfly/sitemap.xml

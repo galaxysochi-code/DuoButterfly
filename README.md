@@ -4,6 +4,8 @@
 
 <h1 align="center">DUO Butterfly</h1>
 
+<p align="center"><a href="https://galaxysochi-code.github.io/DuoButterfly/"><b>Website</b></a></p>
+
 <p align="center">
   <b>Lower your MacBook's lid and the desktop bends, blurs, and darkens.</b>
 </p>
