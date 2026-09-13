@@ -1,0 +1,56 @@
+name: Release
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing tag to build, for example v1.0.0
+        required: true
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: macos-26
+    timeout-minutes: 30
+    env:
+      RELEASE_TAG: ${{ github.event.inputs.tag || github.ref_name }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ env.RELEASE_TAG }}
+      - name: Toolchain
+        run: |
+          xcodebuild -version
+          if ! command -v xcodegen >/dev/null; then brew install xcodegen; fi
+      - name: Check version matches tag
+        run: |
+          version=$(awk -F'"' '/MARKETING_VERSION/ {print $2; exit}' project.yml)
+          [[ "v$version" == "$RELEASE_TAG" ]] || { echo "project.yml version $version does not match $RELEASE_TAG" >&2; exit 1; }
+      - name: Add donation wallets
+        env:
+          DONATION_WALLETS_PLIST: ${{ secrets.DONATION_WALLETS_PLIST }}
+        run: |
+          if [[ -z "$DONATION_WALLETS_PLIST" ]]; then
+            echo "::error::Repository secret DONATION_WALLETS_PLIST is not set. See docs/BUILDING.md." >&2
+            exit 1
+          fi
+          printf '%s' "$DONATION_WALLETS_PLIST" | base64 --decode > DuoButterfly/Resources/Wallets.plist
+          plutil -lint DuoButterfly/Resources/Wallets.plist >/dev/null
+          echo "Donation wallets added: $(plutil -extract '' raw -expect array DuoButterfly/Resources/Wallets.plist 2>/dev/null || echo ok)"
+      - name: Unit tests
+        run: ./scripts/test.sh unit
+      - name: Build ad-hoc archive
+        run: ./build.sh adhoc
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          notes=$(awk -v tag="${RELEASE_TAG#v}" '$0 ~ "^## \\[" tag "\\]" {found=1; next} found && /^## \[/ {exit} found && !/^\[[^]]+\]: /' CHANGELOG.md)
+          gh release create "$RELEASE_TAG" dist/*.zip dist/*.sha256 \
+            --title "DUO Butterfly ${RELEASE_TAG#v}" \
+            --notes "$notes
+
+          > 🪟 **Windows version coming soon.** Star or watch the repository to get notified.
+
+          **Install:** unzip, move DUO Butterfly to Applications, then allow it in System Settings → Privacy & Security. See [INSTALLING.md](https://github.com/${{ github.repository }}/blob/main/docs/INSTALLING.md)."

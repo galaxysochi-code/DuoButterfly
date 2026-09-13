@@ -1,0 +1,40 @@
+.DS_Store
+._*
+*.xcodeproj/
+*.xcworkspace/
+xcuserdata/
+*.xcuserstate
+DerivedData/
+.build/
+build/
+dist/
+*.xcresult/
+*.log
+*.zip
+*.dmg
+*.app/
+.env
+.env.*
+*.p12
+*.p8
+*.pem
+*.key
+*.cer
+*.mobileprovision
+*.provisionprofile
+*.keychain*
+*.local.xcconfig
+VERIFICATION.md
+node_modules/
+*.tgz
+work/
+design/logo-concepts/
+
+# Local handoff notes (contain machine paths)
+HANDOFF.md
+
+# Donation wallet addresses: bundled only into release builds from a repository secret
+DuoButterfly/Resources/Wallets.plist
+
+# README GIF contact sheet (review only)
+docs/images/*.sheet.png

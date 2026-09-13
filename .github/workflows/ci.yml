@@ -1,0 +1,40 @@
+name: Build and unit tests
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  test:
+    runs-on: macos-26
+    timeout-minutes: 20
+    env:
+      DUOBUTTERFLY_TEST_RESULTS: ${{ github.workspace }}/DuoButterflyTests.xcresult
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Toolchain
+        run: |
+          xcodebuild -version
+          if ! command -v xcodegen >/dev/null; then brew install xcodegen; fi
+          xcodegen --version
+      - name: Build and run hardware-independent tests
+        run: ./scripts/test.sh unit
+      - name: Script checks
+        run: |
+          zsh -n build.sh
+          zsh -n scripts/test.sh
+          zsh -n scripts/diagnose-lid.sh
+          zsh -n scripts/readme-screenshots.sh
+      - name: Save test results
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: unit-test-results
+          path: ${{ env.DUOBUTTERFLY_TEST_RESULTS }}
+          if-no-files-found: ignore
+          retention-days: 7

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability / Уязвимость
+    url: https://github.com/galaxysochi-code/DuoButterfly/security/advisories/new
+    about: Report security issues privately / Сообщите об уязвимости приватно
+  - name: Installation help / Помощь с установкой
+    url: https://github.com/galaxysochi-code/DuoButterfly/blob/main/docs/INSTALLING.md
+    about: Gatekeeper, screen-recording permission, lid sensor / Gatekeeper, доступ к экрану, датчик
