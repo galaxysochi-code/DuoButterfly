@@ -1,6 +1,6 @@
 # DUO Butterfly website
 
-Product site: https://galaxysochi-code.github.io/DuoButterfly/
+Product site: https://duobutterfly.com/
 
 The site is plain HTML, CSS and JavaScript in `website/`. No framework, package manager,
 external font, analytics, server or build step is required. English is the source language;
