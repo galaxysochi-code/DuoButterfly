@@ -12,3 +12,4 @@
 @media(max-width:760px){.style-selector{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%;gap:2px}.style-selector button{min-width:0;justify-content:center;gap:6px;padding:12px 5px;font-size:15px}.swatch{width:12px;height:12px;flex-shrink:0}}@media(max-width:370px){.style-selector button{font-size:14px;padding-inline:3px;gap:5px}}
 
 @media(max-width:480px){.nav .brand span{display:none}.nav .brand img{display:block;width:28px;height:28px}.nav-actions{gap:12px}.button.small{min-height:40px;padding-inline:15px}}
+.laptop-media{border:0;border-radius:0;background:#000;box-shadow:none;max-width:920px;margin-inline:auto}.screen-media.laptop-media video{height:auto;aspect-ratio:4/3;object-fit:contain}

@@ -20,7 +20,7 @@ ru: {
 "motion1": "Крышка движется —",
 "motion2": "рабочий стол следует за ней.",
 "motionCopy": "DUO Butterfly реагирует на реальный угол крышки MacBook и меняет изображение прямо во время движения.",
-"demoCaption": "Настоящий рендер · Демонстрационный рабочий стол",
+"demoCaption": "Настоящий рендер · Шёлк, Сумерки и Туман",
 "play": "Смотреть демо",
 "pause": "Пауза",
 "mediaError": "Видео не воспроизводится. GIF-версия есть по ссылке внизу страницы.",
@@ -65,7 +65,7 @@ ru: {
 "sitePrivacy": "На сайте нет аналитики. Выбранный язык хранится только в вашем браузере. Хостинг — GitHub Pages.",
 "navLabel": "Основная навигация",
 "styleLabel": "Стиль эффекта",
-"videoAlt": "Рендер DUO Butterfly: демонстрационный рабочий стол изгибается, размывается и темнеет, затем возвращается в обычный вид.",
+"videoAlt": "Крышка MacBook закрывается и открывается, а DUO Butterfly изгибает, размывает и затемняет рабочий стол в стилях Шёлк, Сумерки и Туман.",
 "appAlt": "Окно приложения DUO Butterfly"
 },
 es: {
@@ -88,7 +88,7 @@ es: {
 "motion1": "Mueve la tapa.",
 "motion2": "El escritorio la sigue.",
 "motionCopy": "DUO Butterfly responde al ángulo real de la tapa de tu MacBook y transforma el escritorio mientras la mueves.",
-"demoCaption": "Renderizado real · Escritorio de muestra",
+"demoCaption": "Renderizado real · Seda, Crepúsculo y Niebla",
 "play": "Ver demo",
 "pause": "Pausa",
 "mediaError": "No se ha podido reproducir el vídeo. Encontrarás la versión GIF al final de la página.",
@@ -133,7 +133,7 @@ es: {
 "sitePrivacy": "Este sitio no usa analíticas. El idioma elegido solo se guarda en tu navegador. Alojado en GitHub Pages.",
 "navLabel": "Navegación principal",
 "styleLabel": "Estilo del efecto",
-"videoAlt": "DUO Butterfly aplicado a un escritorio de muestra: se curva, se desenfoca y se oscurece, y después vuelve a la normalidad.",
+"videoAlt": "La tapa de un MacBook se cierra y se abre mientras DUO Butterfly curva, desenfoca y oscurece el escritorio con los estilos Seda, Crepúsculo y Niebla.",
 "appAlt": "Ventana de la app DUO Butterfly"
 },
 zh: {
@@ -156,7 +156,7 @@ zh: {
 "motion1": "屏幕盖在动，",
 "motion2": "桌面随之变化。",
 "motionCopy": "DUO Butterfly 根据 MacBook 屏幕盖的实际角度，实时改变桌面效果。",
-"demoCaption": "应用实际渲染 · 示例桌面",
+"demoCaption": "应用实际渲染 · 丝绸、暮色、薄雾",
 "play": "播放演示",
 "pause": "暂停",
 "mediaError": "视频无法播放。页面底部提供 GIF 版本。",
@@ -201,7 +201,7 @@ zh: {
 "sitePrivacy": "本网站不使用数据分析。语言选择仅保存在你的浏览器中。由 GitHub Pages 托管。",
 "navLabel": "主导航",
 "styleLabel": "效果风格",
-"videoAlt": "DUO Butterfly 实际渲染：示例桌面弯曲、模糊、变暗，然后恢复原状。",
+"videoAlt": "MacBook 屏幕盖合上又打开，DUO Butterfly 依次以丝绸、暮色、薄雾风格让桌面弯曲、模糊并变暗。",
 "appAlt": "DUO Butterfly 应用窗口"
 }
 };

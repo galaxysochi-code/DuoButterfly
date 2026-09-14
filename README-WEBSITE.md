@@ -42,13 +42,15 @@ The app's no-network/no-audio statements are distinct from the website's GitHub 
 ## Media provenance
 
 - `logo.png`, favicons and `og-image.png`: the owner's final DUO Butterfly artwork.
-- `hero-preview.webp`, `silk.webp`, `dusk.webp`, `mist.webp`: lossless-source crops from
+- `silk.webp`, `dusk.webp`, `mist.webp`: lossless-source crops from
   `docs/images/effect.sheet.png`, produced by the real app Metal renderer.
 - Localized `app-window-*.webp`: actual app screenshots from `docs/images/main-*.png`.
-- Demo MP4/WebM/GIF: the first Silk cycle from `docs/images/effect.gif`, cropped to the
-  desktop and retimed to five seconds. Video files use a 30 fps container; the source
-  animation has 20 fps. This is the production renderer with a bundled sample desktop,
-  not a screen recording of the user's desktop or a physical lid recording.
+- Demo MP4/WebM/GIF and `laptop-poster.webp`: `docs/images/laptop.gif` from
+  `scripts/readme-gif.sh` (the app's Metal renderer on a drawn laptop, cycling Silk, Dusk
+  and Mist), shown uncropped at 1440×1080 as the owner requested, including its English
+  title and style labels. The GIF is a byte-identical copy; the videos re-encode the same
+  frames in a 30 fps container over the 20 fps source. It is not a recording of a
+  physical lid or of the user's desktop.
 
 The new native test-render attempt was blocked by the macOS test-manager sandbox, so
 existing verified app media was used. No application code was changed for the website.
