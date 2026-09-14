@@ -42,6 +42,8 @@ The app's no-network/no-audio statements are distinct from the website's GitHub 
 ## Media provenance
 
 - `logo.png`, favicons and `og-image.png`: the owner's final DUO Butterfly artwork.
+- `og-card.png` (1200×630, Open Graph and Twitter card): the unchanged owner logo with the
+  product name and tagline, rendered with AppKit on a dark background.
 - `silk.webp`, `dusk.webp`, `mist.webp`: lossless-source crops from
   `docs/images/effect.sheet.png`, produced by the real app Metal renderer.
 - Localized `app-window-*.webp`: actual app screenshots from `docs/images/main-*.png`.
