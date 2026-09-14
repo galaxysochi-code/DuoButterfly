@@ -41,9 +41,9 @@ private struct WindowHeader: View {
                 .toggleStyle(PowerToggleStyle())
                 .help(model.preferences.enabled ? tr("Приостановить эффект — ⌘⌥B") : tr("Включить эффект — ⌘⌥B"))
                 .padding(.trailing, 6)
-            AppIconView(size: 26)
-            VStack(alignment: .leading, spacing: 1) {
-                Text(verbatim: "DUO Butterfly").font(.system(size: 13, weight: .bold)).tracking(0.3)
+            AppIconView(size: 40)
+            VStack(alignment: .leading, spacing: 2) {
+                Text(verbatim: "DUO Butterfly").font(.system(size: 19, weight: .bold)).tracking(-0.2)
                 StatusLine(model: model)
             }
             .layoutPriority(1)
@@ -54,7 +54,7 @@ private struct WindowHeader: View {
             .pickerStyle(.segmented).labelsHidden().fixedSize()
         }
         .padding(.horizontal, 20)
-        .frame(height: 56)
+        .frame(height: 72)
     }
 }
 
@@ -75,7 +75,8 @@ private struct PowerSwitch: View {
         } label: {
             ZStack(alignment: on ? .trailing : .leading) {
                 Capsule().fill(on ? AnyShapeStyle(LinearGradient(
-                    colors: [Color(red: 0.38, green: 0.86, blue: 0.51), Color(red: 0.13, green: 0.66, blue: 0.35)],
+                    // White label needs ≥4.5:1: #23863a → #1a7f37 measures 4.62–5.08:1.
+                    colors: [Color(red: 0.137, green: 0.525, blue: 0.227), Color(red: 0.102, green: 0.498, blue: 0.216)],
                     startPoint: .top, endPoint: .bottom)) : AnyShapeStyle(Color.primary.opacity(0.12)))
                 Text(on ? tr("ВКЛ") : tr("ВЫКЛ"))
                     .font(.system(size: 10.5, weight: .heavy, design: .rounded)).tracking(0.8)
@@ -105,7 +106,7 @@ private struct StatusLine: View {
     var body: some View {
         HStack(spacing: 5) {
             Circle().fill(tint).frame(width: 6, height: 6).accessibilityHidden(true)
-            Text(model.status).font(.system(size: 11)).foregroundStyle(.secondary).lineLimit(1)
+            Text(model.status).font(.system(size: 12)).foregroundStyle(.secondary).lineLimit(1)
         }
         .accessibilityElement(children: .combine)
         .accessibilityLabel(tr("Состояние: %@", model.status))
@@ -138,7 +139,7 @@ private struct EffectPage: View {
                 previewCard
                 demoCard
             }
-            .frame(maxWidth: 720)
+            .frame(maxWidth: 520)
             .padding(20)
             .frame(maxWidth: .infinity)
         }
@@ -548,9 +549,9 @@ private struct AboutPage: View {
         Form {
             Section {
                 HStack(spacing: 16) {
-                    AppIconView(size: 72)
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(verbatim: "DUO Butterfly").font(.system(size: 22, weight: .bold)).tracking(0.4)
+                    AppIconView(size: 96)
+                    VStack(alignment: .leading, spacing: 5) {
+                        Text(verbatim: "DUO Butterfly").font(.system(size: 30, weight: .bold)).tracking(-0.4)
                         Text(version).foregroundStyle(.secondary).textSelection(.enabled)
                         Text(tr("Прикройте крышку MacBook — рабочий стол изгибается, размывается и темнеет."))
                             .foregroundStyle(.secondary).fixedSize(horizontal: false, vertical: true)
@@ -570,7 +571,7 @@ private struct AboutPage: View {
                         } label: {
                             Label(tr("Сказать спасибо"), systemImage: "heart")
                         }
-                        .buttonStyle(.glassProminent).tint(.pink)
+                        .buttonStyle(.glassProminent).tint(Color.thanksPink)
                     }
                 } header: { Text(tr("Поддержать разработчика")) }
             }

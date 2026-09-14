@@ -1,6 +1,11 @@
 import SwiftUI
 import AppKit
 
+extension Color {
+    /// Darker pink for filled "Say Thanks" buttons: white text on #d70f4a measures 5.18:1 (system pink is 3.65:1).
+    static let thanksPink = Color(red: 0.843, green: 0.059, blue: 0.290)
+}
+
 /// Thin banner under the window header inviting people to thank the developer.
 struct ThanksBanner: View {
     @Bindable var model: AppModel
@@ -23,9 +28,11 @@ struct ThanksBanner: View {
                 Label(tr("Сказать спасибо"), systemImage: "heart").padding(.horizontal, 2)
             }
             .buttonStyle(.glassProminent)
-            .tint(.pink)
+            .tint(Color.thanksPink)
             Button { model.hideThanksBanner() } label: {
                 Image(systemName: "xmark").font(.system(size: 11, weight: .semibold))
+                    .frame(width: 28, height: 28)
+                    .contentShape(Rectangle())
             }
             .buttonStyle(.borderless)
             .foregroundStyle(.secondary)

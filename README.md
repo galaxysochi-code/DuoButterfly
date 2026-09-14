@@ -32,7 +32,7 @@
 </p>
 
 <p align="center">
-  <img src="docs/images/effect.gif" width="720" alt="DUO Butterfly effect: the desktop bends, blurs, and darkens as the lid closes">
+  <img src="docs/images/laptop.gif" width="720" alt="A laptop closes and opens while DUO Butterfly bends, blurs, and darkens the desktop in the Silk, Dusk, and Mist styles">
 </p>
 
 DUO Butterfly is a menu bar utility for MacBook. As you lower the lid, the desktop image smoothly

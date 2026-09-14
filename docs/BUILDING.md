@@ -90,7 +90,9 @@ The terminal needs screen-recording permission.
 ./scripts/readme-gif.sh
 ```
 
-Renders `docs/images/effect.gif` with the app's Metal renderer: the lid closes and opens for each style.
+Renders, with the app's Metal renderer, `docs/images/effect.gif` (the effect on a flat screen) and
+`docs/images/laptop.gif` (a drawn laptop closing and opening through all three styles, 1440 × 1080).
+It also writes per-style `laptop-silk.gif`, `laptop-dusk.gif` and `laptop-mist.gif`, which are not committed.
 
 ## Preview image
 

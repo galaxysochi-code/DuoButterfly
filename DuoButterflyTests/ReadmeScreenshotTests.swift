@@ -12,7 +12,7 @@ final class ReadmeScreenshotTests: XCTestCase {
             throw XCTSkip("Run scripts/readme-screenshots.sh to capture README screenshots")
         }
         defer { Localizer.testLanguage = .ru }
-        let shots: [(String, AppLanguage, NSAppearance.Name, Content)] = [
+        let readmeShots: [(String, AppLanguage, NSAppearance.Name, Content)] = [
             ("main-ru", .ru, .darkAqua, .section(.effect)),
             ("settings-ru", .ru, .aqua, .section(.general)),
             ("main-en", .en, .darkAqua, .section(.effect)),
@@ -20,6 +20,17 @@ final class ReadmeScreenshotTests: XCTestCase {
             ("main-zh", .zh, .darkAqua, .section(.effect)),
             ("main-es", .es, .darkAqua, .section(.effect)),
         ]
+        // Broader set for interface reviews: every section in both appearances, plus the longest (Spanish) strings.
+        var reviewShots: [(String, AppLanguage, NSAppearance.Name, Content)] = []
+        for (language, suffix) in [(AppLanguage.ru, "ru"), (.es, "es")] {
+            for (appearance, theme) in [(NSAppearance.Name.aqua, "light"), (.darkAqua, "dark")] {
+                for section in SettingsSection.allCases {
+                    reviewShots.append(("review-\(section.rawValue)-\(suffix)-\(theme)", language, appearance, .section(section)))
+                }
+            }
+        }
+        reviewShots.append(("review-donations-ru-dark", .ru, .darkAqua, .donations))
+        let shots = ProcessInfo.processInfo.environment["DUOBUTTERFLY_SCREENSHOT_SET"] == "review" ? reviewShots : readmeShots
         for (name, language, appearance, content) in shots {
             Localizer.testLanguage = language
             let domain = "DuoButterflyScreenshots.\(UUID().uuidString)"
@@ -35,8 +46,8 @@ final class ReadmeScreenshotTests: XCTestCase {
             switch content {
             case .section(let section):
                 model.section = section
-                root = AnyView(SettingsView(model: model, controller: AppController.shared).frame(width: 900, height: 680))
-                size = NSSize(width: 900, height: 680)
+                root = AnyView(SettingsView(model: model, controller: AppController.shared).frame(width: 900, height: 720))
+                size = NSSize(width: 900, height: 720)
             case .donations:
                 let sheet = NSHostingView(rootView: DonationSheet())
                 size = sheet.fittingSize

@@ -38,3 +38,6 @@ DuoButterfly/Resources/Wallets.plist
 
 # README GIF contact sheet (review only)
 docs/images/*.sheet.png
+
+# Per-style laptop renders from scripts/readme-gif.sh (not published)
+docs/images/laptop-*.gif

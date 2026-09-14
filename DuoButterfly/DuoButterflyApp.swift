@@ -7,10 +7,10 @@ import AppKit
     var body: some Scene {
         Window("DUO Butterfly", id: "main") {
             SettingsView(model: controller.model, controller: controller)
-                .frame(width: 900, height: 680)
+                .frame(width: 900, height: 720)
                 .onExitCommand { controller.stopDemo() }
         }
-        .defaultSize(width: 900, height: 680)
+        .defaultSize(width: 900, height: 720)
         .windowStyle(.hiddenTitleBar)
         .windowResizability(.contentSize)
         .commands {
