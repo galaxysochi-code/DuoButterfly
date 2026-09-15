@@ -47,12 +47,12 @@ The app's no-network/no-audio statements are distinct from the website's GitHub 
 - `silk.webp`, `dusk.webp`, `mist.webp`: lossless-source crops from
   `docs/images/effect.sheet.png`, produced by the real app Metal renderer.
 - Localized `app-window-*.webp`: actual app screenshots from `docs/images/main-*.png`.
-- Demo MP4/WebM/GIF and `laptop-poster.webp`: `docs/images/laptop.gif` from
-  `scripts/readme-gif.sh` (the app's Metal renderer on a drawn laptop, cycling Silk, Dusk
-  and Mist), shown uncropped at 1440×1080 as the owner requested, including its English
-  title and style labels. The GIF is a byte-identical copy; the videos re-encode the same
-  frames in a 30 fps container over the 20 fps source. It is not a recording of a
-  physical lid or of the user's desktop.
+- Demo MP4/WebM/GIF and `laptop-poster.webp`: `docs/images/laptop-blur-realistic-v2.mp4`
+  (the owner's realistic space-gray laptop render, cycling Silk, Dusk and Mist), shown
+  uncropped at 1440×1080 with its English title and style labels. Videos are re-encoded at
+  30 fps from the 60 fps source. The 30 MB source GIF is too large for GitHub READMEs, so
+  `demo-laptop.gif` and `docs/images/laptop.gif` are the same frames at 720 px and 12 fps.
+  It is not a recording of a physical lid or of the user's desktop.
 
 The new native test-render attempt was blocked by the macOS test-manager sandbox, so
 existing verified app media was used. No application code was changed for the website.
